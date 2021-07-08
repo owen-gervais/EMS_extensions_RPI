@@ -30,11 +30,9 @@ downloadFile():
 '''
 def downloadFile(fileName:str, fileRepository:str, save:bool) -> bool:
     
-    TWappKey = os.getenv('THINGWORX_KEY')
-    
     # Request Headers
     headers = {
-        "appKey":TWappKey,
+        "appKey": os.getenv('THINGWORX_KEY'),
         "Content-Type":"application/json",
         "Accept":"application/json, */*"
     }
@@ -62,6 +60,6 @@ def downloadFile(fileName:str, fileRepository:str, save:bool) -> bool:
 # Command Line Interface for EMS
 
 fileName = sys.argv[1]
-fileRepository = "OG_test_FileRepository"
+fileRepository = sys.argv[2]
  
 downloadFile(fileName, fileRepository, True)
