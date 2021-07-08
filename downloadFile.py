@@ -40,7 +40,7 @@ def downloadFile(fileName:str, fileRepository:str, save:bool) -> bool:
     }
     
     # Request URL Parameters
-    host = "https://pp-2101111403aw.portal.ptc.io/"
+    host = os.getenv('THINGWORX_HOST')
     path = "/Thingworx/FileRepositoryDownloader"
     repositoryQuery = "?download-repository="
     fileQuery = "&download-path=/"
@@ -50,7 +50,6 @@ def downloadFile(fileName:str, fileRepository:str, save:bool) -> bool:
     
     try:
         r = requests.request("GET", url, headers = headers, allow_redirects=True)
-        print(r)
         if (save):
             file = open(fileName, "w")
             file.write(r.text)
