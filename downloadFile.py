@@ -60,6 +60,6 @@ def downloadFile(fileName:str, fileRepository:str, save:bool) -> bool:
 # Command Line Interface for EMS
 
 fileName = sys.argv[1]
-fileRepository = "OG_test_FileRepository"
+fileRepository = sys.argv[2]
  
 downloadFile(fileName, fileRepository, True)
