@@ -30,11 +30,9 @@ downloadFile():
 '''
 def downloadFile(fileName:str, fileRepository:str, save:bool) -> bool:
     
-    TWappKey = os.getenv('THINGWORX_KEY')
-    
     # Request Headers
     headers = {
-        "appKey":TWappKey,
+        "appKey": os.getenv('THINGWORX_KEY'),
         "Content-Type":"application/json",
         "Accept":"application/json, */*"
     }
